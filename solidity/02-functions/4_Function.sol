@@ -38,13 +38,13 @@ contract Variables_And_Functions_Scopes {
     bool internal isAlive;
     address myAddr = address(444); // default > internal
 
-    function internalFunction() internal { }
+    function internalFunction() internal {}
 
-    function privateFunction() private { }
+    function privateFunction() private {}
 
-    function publicFunction() public { }
+    function publicFunction() public {}
 
-    function externalFunction() external { }
+    function externalFunction() external {}
 }
 
 /* variable locations:
@@ -68,7 +68,7 @@ contract Variables_And_Functions_Scopes {
 
 contract Functions {
     uint public number = 10; // state variable
-    uint private _age;       // state variable
+    uint private _age; // state variable
 
     function setNumber() public {
         number = 20;
@@ -95,18 +95,21 @@ contract Functions {
         sum = a + b;
     }
 
-    function makeSum3(uint a, uint b) public pure returns (uint sum, bool success) {
+    function makeSum3(
+        uint a,
+        uint b
+    ) public pure returns (uint sum, bool success) {
         sum = a + b;
         success = true;
     }
 
     function getSumStatus() public pure returns (uint, bool) {
-        (uint sum, bool success) = makeSum3(2,3);
+        (uint sum, bool success) = makeSum3(2, 3);
         return (sum, success);
     }
 
     function getSumStatus2() public pure returns (bool) {
-        (, bool success) = makeSum3(2,3);
+        (, bool success) = makeSum3(2, 3);
         return (success);
     }
 }
